@@ -33,8 +33,13 @@ display the character's attributes in a creative and humorous way.
 */
 
 // Declare and initialize variables
-
-
+let powerListA = ["flight", "speed", "teleportation"];
+let powerListB = ["regeneration", "telepathy", "invisibility"];
+let characterName = "Name";
+let characterAge = Math.floor(Math.random() * 100) + 1;
+let isSuper = Math.floor(Math.random() * 2);
+let specialPowers = [powerListA[Math.floor(Math.random() * 3)], powerListB[Math.floor(Math.random() * 3)]];
+let favouriteFood = "apples";
 // Function to generate a random character description
 
 
