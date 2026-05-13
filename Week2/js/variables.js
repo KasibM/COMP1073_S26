@@ -12,6 +12,9 @@ let para = document.querySelector("p");
 /* STEP 2: Initialize variables
 Don't confuse a variable with no value with one that doesn't exist at all */
 
+myName = "Kasib Mir";
+myCourse = "JavaScript";
+string = "string";
 
 /* STEP 3: Updating variables
 Once a variable has been declared, this can be done any time */
