@@ -2,6 +2,12 @@
 Use a-z, 0-9, A-Z and underscores, avoiding reserved names
 All program variables are generally declared at the beginning */
 
+let myName;
+let myCourse;
+let string;
+let para = document.querySelector("p");
+
+
 
 /* STEP 2: Initialize variables
 Don't confuse a variable with no value with one that doesn't exist at all */
