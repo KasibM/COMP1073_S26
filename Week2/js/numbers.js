@@ -1,15 +1,25 @@
 
 /* STEP 1: Number types (integer, float, and double)
 declare and initialize an integer and a float, then in the console, reveal the number type with typeof(varName) */
-let numInt = 1;
-let numFloat = 1.01;
-console.log("numInt Type: " + typeof(numInt));
-console.log("numFloat Type: "+ typeof(numFloat));
+let para = document.querySelector('p');
+
+let myInteger = 1;
+let myFloat = 1.01;
+let myBinary = 0b101101; //prefix = 0b
+console.log("Binary: "+ myBinary);
+let myOctal = 0o1273; //prefix = 0o
+console.log("Octal: "+ myOctal);
+let myHex = 0xA1FD; //prefix = 0x
+console.log("Hexadecimal: " + myHex);
+console.log("numInt Type: " + typeof(myInteger));
+console.log("numFloat Type: "+ typeof(myFloat));
 // Note - there are also different number systems: binary, octal, and hexadecimal
 
 /* STEP 2: Arithmetic operators
 + (addition), - (subtraction), * (multiplication), / (division), % (remainder or modulo), ** (exponent) */
-
+let step2a = 5 % 3;
+console.log("step2a: " + step2a);
+para.textContent = step2a;
 
 // Try declaring and initializing a couple of variables as numbers
 
