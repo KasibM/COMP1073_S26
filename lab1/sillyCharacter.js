@@ -37,11 +37,21 @@ let powerListA = ["flight", "speed", "teleportation"];
 let powerListB = ["regeneration", "telepathy", "invisibility"];
 let characterName = "Name";
 let characterAge = Math.floor(Math.random() * 100) + 1;
-let isSuper = Math.floor(Math.random() * 2);
+let isSuperNum = Math.floor(Math.random() * 2);
+let isSuper;
 let specialPowers = [powerListA[Math.floor(Math.random() * 3)], powerListB[Math.floor(Math.random() * 3)]];
 let favouriteFood = "apples";
 // Function to generate a random character description
-
+function generateCharacterDescription(){
+    const characterDescription = document.querySelector("p#characterDescription");
+    characterDescription.textContext = characterName + " is " + " years old.";
+    if (isSuperNum === 0){
+        characterDescription.textContext += " " + characterName + " has the powers of " + specialPowers[0] + " and " + specialPowers[1] + ".";
+    } else {
+        characterDescription.textContext += " " + characterName + "does not have any powers.";
+    }
+    characterDescription.textContext += "Their favourite food is " + favouriteFood;
+}
 
 // Functions to update character's age
 
