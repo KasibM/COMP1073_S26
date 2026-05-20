@@ -41,9 +41,10 @@ let isSuperNum = Math.floor(Math.random() * 2);
 let isSuper;
 let specialPowers = [powerListA[Math.floor(Math.random() * 3)], powerListB[Math.floor(Math.random() * 3)]];
 let favouriteFood = "apples";
+const characterDescription = document.querySelector("p#characterDescription");
+
 // Function to generate a random character description
 function generateCharacterDescription(){
-    const characterDescription = document.querySelector("p#characterDescription");
     characterDescription.textContext = characterName + " is " + " years old.";
     if (isSuperNum === 0){
         characterDescription.textContext += " " + characterName + " has the powers of " + specialPowers[0] + " and " + specialPowers[1] + ".";
@@ -54,9 +55,12 @@ function generateCharacterDescription(){
 }
 
 // Functions to update character's age
-
-
-
+function increaseCharacterAge(){
+    characterAge++;
+}
+function decreaseCharacterAge(){
+    characterAge--;
+}
 
 // Function to update the character's description after changing age
 
