@@ -45,6 +45,13 @@ const characterDescription = document.querySelector("p#characterDescription");
 
 // Function to generate a random character description
 function generateCharacterDescription(){
+    powerListA = ["flight", "speed", "teleportation"];
+    powerListB = ["regeneration", "telepathy", "invisibility"];
+    characterName = "Name";
+    characterAge = Math.floor(Math.random() * 100) + 1;
+    isSuperNum = Math.floor(Math.random() * 2);
+    specialPowers = [powerListA[Math.floor(Math.random() * 3)], powerListB[Math.floor(Math.random() * 3)]];
+    favouriteFood = "apples";
     characterDescription.textContext = characterName + " is " + " years old.";
     if (isSuperNum === 0){
         characterDescription.textContext += " " + characterName + " has the powers of " + specialPowers[0] + " and " + specialPowers[1] + ".";
@@ -63,7 +70,15 @@ function decreaseCharacterAge(){
 }
 
 // Function to update the character's description after changing age
-
+function updateCharacterDescription(){
+    characterDescription.textContext = characterName + " is " + " years old.";
+    if (isSuperNum === 0){
+        characterDescription.textContext += " " + characterName + " has the powers of " + specialPowers[0] + " and " + specialPowers[1] + ".";
+    } else {
+        characterDescription.textContext += " " + characterName + "does not have any powers.";
+    }
+    characterDescription.textContext += "Their favourite food is " + favouriteFood;
+}
 
 // Add event listeners for buttons using querySelector
 
