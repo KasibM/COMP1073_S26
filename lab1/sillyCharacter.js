@@ -41,44 +41,55 @@ let isSuperNum = Math.floor(Math.random() * 2);
 let isSuper;
 let specialPowers = [powerListA[Math.floor(Math.random() * 3)], powerListB[Math.floor(Math.random() * 3)]];
 let favouriteFood = "apples";
+const generateCharacter = document.querySelector("button#generateButton");
 const characterDescription = document.querySelector("p#characterDescription");
+const increaseAge = document.querySelector("button#increaseAgeButton");
+const decreaseAge = document.querySelector("button#decreaseAgeButton");
+const nameField = document.querySelector('input#nameField');
+const nameSubmit = document.querySelector('button#nameButton');
 
 // Function to generate a random character description
 function generateCharacterDescription(){
     powerListA = ["flight", "speed", "teleportation"];
     powerListB = ["regeneration", "telepathy", "invisibility"];
-    characterName = "Name";
+    characterName = "[Change Name]";
     characterAge = Math.floor(Math.random() * 100) + 1;
     isSuperNum = Math.floor(Math.random() * 2);
     specialPowers = [powerListA[Math.floor(Math.random() * 3)], powerListB[Math.floor(Math.random() * 3)]];
     favouriteFood = "apples";
-    characterDescription.textContext = characterName + " is " + " years old.";
+    characterDescription.textContent = characterName + " is " + characterAge + " years old.";
     if (isSuperNum === 0){
-        characterDescription.textContext += " " + characterName + " has the powers of " + specialPowers[0] + " and " + specialPowers[1] + ".";
+        characterDescription.textContent += " " + characterName + " has the powers of " + specialPowers[0] + " and " + specialPowers[1] + ".";
     } else {
-        characterDescription.textContext += " " + characterName + "does not have any powers.";
+        characterDescription.textContent += " " + characterName + " does not have any powers. ";
     }
-    characterDescription.textContext += "Their favourite food is " + favouriteFood;
+    characterDescription.textContent += " Their favourite food is " + favouriteFood;
+}
+
+// Function to update the character's description after changing age
+function updateCharacterDescription(){
+    characterDescription.textContent = characterName + " is " + " years old.";
+    if (isSuperNum === 0){
+        characterDescription.textContent += " " + characterName + " has the powers of " + specialPowers[0] + " and " + specialPowers[1] + ".";
+    } else {
+        characterDescription.textContent += " " + characterName + "does not have any powers.";
+    }
+    characterDescription.textContent += "Their favourite food is " + favouriteFood;
 }
 
 // Functions to update character's age
 function increaseCharacterAge(){
     characterAge++;
+    updateCharacterDescription();
 }
 function decreaseCharacterAge(){
     characterAge--;
-}
-
-// Function to update the character's description after changing age
-function updateCharacterDescription(){
-    characterDescription.textContext = characterName + " is " + " years old.";
-    if (isSuperNum === 0){
-        characterDescription.textContext += " " + characterName + " has the powers of " + specialPowers[0] + " and " + specialPowers[1] + ".";
-    } else {
-        characterDescription.textContext += " " + characterName + "does not have any powers.";
-    }
-    characterDescription.textContext += "Their favourite food is " + favouriteFood;
+    updateCharacterDescription();
 }
 
 // Add event listeners for buttons using querySelector
+//nameChange.addEventListener('click', );
+generateCharacter.addEventListener('click', generateCharacterDescription);
+increaseAge.addEventListener('click', increaseCharacterAge);
+decreaseAge.addEventListener('click', decreaseCharacterAge);
 
