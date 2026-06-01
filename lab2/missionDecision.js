@@ -89,3 +89,9 @@ const healthP = document.querySelector("p#health");
 const missionProgressP = document.querySelector("p#missionProgress");
 const enemyNearbyP = document.querySelector("p#enemyNearby");
 const missionDecision = document.querySelector("p#missionDecision");
+
+ammoP.textContent = "Ammo: " + ammo;
+shieldP.textContent = "Shield Active: " + shield;
+healthP.textContent = "Current Health: " + health;
+missionProgressP.textContent = "Mission Progress: " + missionProgress + "%";
+enemyNearbyP.textContent = "Enemies Nearby: " + enemyNearby;
