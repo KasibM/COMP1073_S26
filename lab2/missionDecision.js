@@ -95,3 +95,18 @@ shieldP.textContent = "Shield Active: " + shield;
 healthP.textContent = "Current Health: " + health;
 missionProgressP.textContent = "Mission Progress: " + missionProgress + "%";
 enemyNearbyP.textContent = "Enemies Nearby: " + enemyNearby;
+
+// Conditional Statements to Determine Mission Report
+if(health < 30 && enemyNearby){
+    missionDecision.textContent = "CRITICAL ALERT: Immediate Evacuation Required";
+} else if(ammo < 5 || !shield){
+    missionDecision.textContent = "Warning: Low Resources";
+} else if(missionProgress > 1 && missionProgress < 70){
+    missionDecision.textContent = "Mission In Progress";
+} else if(missionProgress > 70 && !enemyNearby){
+    missionDecision.textContent = "Approaching Mission Completion";
+} else if(missionProgress === 100){
+    missionDecision.textContent = "Mission Complete Successfully";
+} else {
+    missionDecision.textContent = "System Stable";
+}
