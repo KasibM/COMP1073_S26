@@ -82,3 +82,10 @@ let ammo = 8;
 let shield = true;
 let missionProgress = 40;
 let enemyNearby = true;
+
+const ammo = document.querySelector("p#ammo");
+const shield = document.querySelector("p#shield");
+const health = document.querySelector("p#health");
+const missionProgress = document.querySelector("p#missionProgress");
+const enemyNearby = document.querySelector("p#enemyNearby");
+const missionDecision = document.querySelector("p#missionDecision");
