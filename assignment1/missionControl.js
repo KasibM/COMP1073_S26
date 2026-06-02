@@ -64,3 +64,39 @@ Organized carefully
 
 
 */
+
+// Declaration and Initialisation of Variables
+let agentBank = [];
+let locationBank = [];
+let weaponBank = [];
+let objectiveBank = [];
+let riskBank = [];
+
+let agent = 0;
+let location = 0;
+let weapon = 0;
+let objective = 0;
+let risk = 0;
+// Declaration and Initialisation of Document Constants
+const agentBack = document.querySelector("#agentBack");
+const agentSelection = document.querySelector("#agentSelection");
+const agentNext = document.querySelector("#agentNext");
+
+const locationBack = document.querySelector("#locationBack");
+const locationSelection = document.querySelector("#locationSelection");
+const locationNext = document.querySelector("#locationNext");
+
+const weaponBack = document.querySelector("#weaponBack");
+const weaponSelection = document.querySelector("#weaponSelection");
+const weaponNext = document.querySelector("#weaponNext");
+
+const objectiveBack = document.querySelector("#objectiveBack");
+const objectiveSelection = document.querySelector("#objectiveSelection");
+const objectiveNext = document.querySelector("#objectiveNext");
+
+const riskBack = document.querySelector("#riskBack");
+const riskSelection = document.querySelector("#riskSelection");
+const riskNext = document.querySelector("#riskNext");
+
+const generateButton = document.querySelector("#generateButton");
+const resetButton = document.querySelector("#resetButton");
