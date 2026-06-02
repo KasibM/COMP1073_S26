@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission Decision Engine</title>
-    <script src="missionDecision.js" defer></script>
+    <title>Mission Control</title>
+    <link rel="stylesheet" href="missionControl.css"></link>
+    <script src="missionControl.js" defer></script>
 </head>
 <body>
-    <h1>Mission Status</h1>
-    <p id="ammo"></p>
-    <p id="shield"></p>
-    <p id="health"></p>
-    <p id="missionProgress"></p>
-    <p id="enemyNearby"></p>
+    <!-- Selection Menu -->
+    <h1>Mission Select</h1>
+    <p id="agentCaption">Agent:</p>
+    <p id="agentBody">
+        <span id="agentBack" class="clickable">&lt;</span>
+        <span id="agentSelection"></span>
+        <span id="agentNext" class="clickable">&gt;</span>
+    </p>
+    <p id="locationCaption">Location:</p>
+    <p id="locationBody">
+        <span id="locationBack" class="clickable">&lt;</span>
+        <span id="locationSelection"></span>
+        <span id="locationNext" class="clickable">&gt;</span>
+    </p>
+    <p id="weaponCaption">Weapon:</p>
+    <p id="weaponBody">
+        <span id="weaponBack" class="clickable">&lt;</span>
+        <span id="weaponSelection"></span>
+        <span id="weaponNext" class="clickable">&gt;</span>
+    </p>
+    <p id="objectiveCaption">Objective:</p>
+    <p id="objectiveBody">
+        <span id="objectiveBack" class="clickable">&lt;</span>
+        <span id="objectiveSelection"></span>
+        <span id="objectiveNext" class="clickable">&gt;</span>
+    </p>
+    <p id="riskCaption">Risk:</p>
+    <p id="riskBody">
+        <span id="riskBack" class="clickable">&lt;</span>
+        <span id="riskSelection"></span>
+        <span id="riskNext" class="clickable">&gt;</span>
+    </p>
+    <p id="generateButton" class="clickable">Generate Briefing</p>
+
     <br>
-    <h2 id="missionDecisionHeader">Report</h2>
-    <p id="missionDecision"></p>
+    <!-- Briefing -->
+    <h1 id="briefingHead"></h1>
+    <p id="briefingPara"></p>
+    <p id="resetButton" class="clickable">Reset</p>
+
 </body>
 </html>
