@@ -100,3 +100,106 @@ const riskNext = document.querySelector("#riskNext");
 
 const generateButton = document.querySelector("#generateButton");
 const resetButton = document.querySelector("#resetButton");
+
+// Functions to Change Selection
+function agentRefresh(){
+    agentSelection.textContent = agentBank[agent];
+}
+function SelectNext(){
+    if(agent < agentBank.length-1){
+        agent++;
+    } else {
+        agent = 1;
+    } 
+    agentRefresh();
+}
+function agentSelectBack(){
+    if(agent > 1){
+        agent--;
+    } else {
+        agent = agentBank.length-1;
+    } 
+    agentRefresh();
+}
+
+function locationRefresh(){
+    locationSelection.textContent = locationBank[location];
+}
+function locationSelectNext(){
+    if(location < locationBank.length-1){
+        location++;
+    } else {
+        location = 1;
+    } 
+    locationRefresh();
+}
+function locationSelectBack(){
+    if(location > 1){
+        location--;
+    } else {
+        location = locationBank.length-1;
+    } 
+    locationRefresh();
+}
+
+function weaponRefresh(){
+    weaponSelection.textContent = weaponBank[weapon];
+}
+function weaponSelectNext(){
+    if(weapon < weaponBank.length-1){
+        weapon++;
+    } else {
+        weapon = 1;
+    } 
+    weaponRefresh();
+}
+function weaponSelectBack(){
+    if(weapon > 1){
+        weapon--;
+    } else {
+        weapon = weaponBank.length-1;
+    } 
+    weaponRefresh();
+}
+
+function objectiveRefresh(){
+    objectiveSelection.textContent = objectiveBank[objective];
+}
+function objectiveSelectNext(){
+    if(objective < objectiveBank.length-1){
+        objective++;
+    } else {
+        objective = 1;
+    } 
+    objectiveRefresh();
+}
+function objectiveSelectBack(){
+    if(objective > 1){
+        objective--;
+    } else {
+        objective = objectiveBank.length-1;
+    } 
+    objectiveRefresh();
+}
+
+function riskRefresh(){
+    riskSelection.textContent = riskBank[risk];
+}
+function riskSelectNext(){
+    if(risk < riskBank.length-1){
+        risk++;
+    } else {
+        risk = 1;
+    } 
+    riskRefresh();
+}
+function riskSelectBack(){
+    if(risk > 1){
+        risk--;
+    } else {
+        risk = riskBank.length-1;
+    } 
+    riskRefresh();
+}
+
+
