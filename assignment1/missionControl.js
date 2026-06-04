@@ -158,9 +158,17 @@ const riskNext = document.querySelector("#riskNext");
 const generateButton = document.querySelector("#generateButton");
 const resetButton = document.querySelector("#resetButton");
 
+// Set initial Not Selected Placeholders
+agentRefresh();
+locRefresh();
+weaponRefresh();
+objectiveRefresh();
+riskRefresh();
+
 // Functions to Change Selection
 function agentRefresh(){
     agentSelection.textContent = agentBank[agent];
+    console.log("ref");
 }
 function agentSelectNext(){
     if(agent < agentBank.length-1){
