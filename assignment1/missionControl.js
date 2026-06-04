@@ -106,7 +106,7 @@ const weaponBank = [
                 "Energy Sword"
 ];
 const objectiveBank = [
-                "not Selected",
+                "Not Selected",
                 "rescue the hostage",
                 "stop the nuclear launch",
                 "retrieve the stolen intel",
@@ -162,11 +162,7 @@ const missionHeader = document.querySelector("#briefingHead");
 const missionPara = document.querySelector("#briefingPara");
 
 // Set initial Not Selected Placeholders
-agentRefresh();
-locRefresh();
-weaponRefresh();
-objectiveRefresh();
-riskRefresh();
+resetMission();
 
 // Functions to Change Selection
 function agentRefresh(){
@@ -270,7 +266,7 @@ function riskSelectBack(){
 }
 
 // Functions to Generate and Reset Mission
-async function generateMission(){
+function generateMission(){
     if(agent === 0 || loc === 0 || weapon === 0 || objective === 0 || risk === 0){
         missionHeader.textContent = "Unable to Generate Mission Briefing";
         missionPara.textContent = "All mission details need to be selected.";
@@ -278,6 +274,20 @@ async function generateMission(){
         missionHeader.textContent = "Mission Briefing";
         missionPara.textContent = `Agent ${agentBank[agent]} will be on a ${riskBank[risk]} mission in ${locBank[loc]}. They will be using a ${weaponBank[weapon]} to ${objectiveBank[objective]}.`;
     } 
+}
+function resetMission(){
+    agent = 0;
+    loc = 0;
+    weapon = 0;
+    objective = 0;
+    risk = 0;
+    agentRefresh();
+    locRefresh();
+    weaponRefresh();
+    objectiveRefresh();
+    riskRefresh();
+    missionHeader.textContent = "";
+    missionPara.textContent = "";
 }
 
 // Event listeners
@@ -298,4 +308,4 @@ riskBack.addEventListener("click", riskSelectBack);
 riskNext.addEventListener("click", riskSelectNext);
 
 generateButton.addEventListener("click", generateMission);
-
+resetButton.addEventListener("click", resetMission);
