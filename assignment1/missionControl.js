@@ -106,18 +106,18 @@ const weaponBank = [
                 "Energy Sword"
 ];
 const objectiveBank = [
-                "Not Selected",
-                "Rescue the hostage",
-                "Stop the nuclear launch",
-                "Retrieve the stolen intel",
-                "Eliminate the crime syndicate leader",
-                "Protect the VIP",
-                "Hack the enemy mainframe",
-                "Destroy the secret weapon facility",
-                "Prevent the assassination",
-                "Infiltrate the enemy base",
-                "Recover the experimental prototype",
-                "Escape before detonation"
+                "not Selected",
+                "rescue the hostage",
+                "stop the nuclear launch",
+                "retrieve the stolen intel",
+                "eliminate the crime syndicate leader",
+                "protect the VIP",
+                "hack the enemy mainframe",
+                "destroy the secret weapon facility",
+                "prevent the assassination",
+                "infiltrate the enemy base",
+                "recover the experimental prototype",
+                "escape before detonation"
 ];
 const riskBank = [
                 "Not Selected",
@@ -125,7 +125,7 @@ const riskBank = [
                 "Moderate Risk",
                 "High Risk",
                 "Extreme Risk",
-                "Suicide Mission"
+                "Impossible"
 ];
 
 let agent = 0;
@@ -158,6 +158,9 @@ const riskNext = document.querySelector("#riskNext");
 const generateButton = document.querySelector("#generateButton");
 const resetButton = document.querySelector("#resetButton");
 
+const missionHeader = document.querySelector("#briefingHead");
+const missionPara = document.querySelector("#briefingPara");
+
 // Set initial Not Selected Placeholders
 agentRefresh();
 locRefresh();
@@ -168,7 +171,6 @@ riskRefresh();
 // Functions to Change Selection
 function agentRefresh(){
     agentSelection.textContent = agentBank[agent];
-    console.log("ref");
 }
 function agentSelectNext(){
     if(agent < agentBank.length-1){
@@ -267,6 +269,17 @@ function riskSelectBack(){
     riskRefresh();
 }
 
+// Functions to Generate and Reset Mission
+async function generateMission(){
+    if(agent === 0 || loc === 0 || weapon === 0 || objective === 0 || risk === 0){
+        missionHeader.textContent = "Unable to Generate Mission Briefing";
+        missionPara.textContent = "All mission details need to be selected.";
+    } else{
+        missionHeader.textContent = "Mission Briefing";
+        missionPara.textContent = `Agent ${agentBank[agent]} will be on a ${riskBank[risk]} mission in ${locBank[loc]}. They will be using a ${weaponBank[weapon]} to ${objectiveBank[objective]}.`;
+    } 
+}
+
 // Event listeners
 
 agentBack.addEventListener("click", agentSelectBack);
@@ -283,4 +296,6 @@ objectiveNext.addEventListener("click", objectiveSelectNext);
 
 riskBack.addEventListener("click", riskSelectBack);
 riskNext.addEventListener("click", riskSelectNext);
+
+generateButton.addEventListener("click", generateMission);
 
