@@ -66,25 +66,82 @@ Organized carefully
 */
 
 // Declaration and Initialisation of Variables
-let agentBank = [];
-let locationBank = [];
-let weaponBank = [];
-let objectiveBank = [];
-let riskBank = [];
+const agentBank = [
+                "Not Selected",
+                "Dr. No",
+                "Blofeld",
+                "Scaramanga",
+                "Le Chiffre",
+                "Goldfinger",
+                "Silva",
+                "Safin",
+                "Oddjob"
+];
+const locBank = [
+                "Not Selected",
+                "Canada",
+                "Japan",
+                "Brazil",
+                "Germany",
+                "Australia",
+                "South Africa",
+                "Norway",
+                "Mexico",
+                "India",
+                "Italy"
+];
+const weaponBank = [
+                "Not Selected",
+                "Plasma Rifle",
+                "Laser Pistol",
+                "EMP Grenade",
+                "Nano Blade",
+                "Railgun",
+                "Pulse Cannon",
+                "Shock Baton",
+                "Drone Swarm",
+                "Flamethrower",
+                "Sniper Rifle",
+                "Tactical Crossbow",
+                "Energy Sword"
+];
+const objectiveBank = [
+                "Not Selected",
+                "Rescue the hostage",
+                "Stop the nuclear launch",
+                "Retrieve the stolen intel",
+                "Eliminate the crime syndicate leader",
+                "Protect the VIP",
+                "Hack the enemy mainframe",
+                "Destroy the secret weapon facility",
+                "Prevent the assassination",
+                "Infiltrate the enemy base",
+                "Recover the experimental prototype",
+                "Escape before detonation"
+];
+const riskBank = [
+                "Not Selected",
+                "Low Risk",
+                "Moderate Risk",
+                "High Risk",
+                "Extreme Risk",
+                "Suicide Mission"
+];
 
 let agent = 0;
-let location = 0;
+let loc = 0;
 let weapon = 0;
 let objective = 0;
 let risk = 0;
+
 // Declaration and Initialisation of Document Constants
 const agentBack = document.querySelector("#agentBack");
 const agentSelection = document.querySelector("#agentSelection");
 const agentNext = document.querySelector("#agentNext");
 
-const locationBack = document.querySelector("#locationBack");
-const locationSelection = document.querySelector("#locationSelection");
-const locationNext = document.querySelector("#locationNext");
+const locBack = document.querySelector("#locationBack");
+const locSelection = document.querySelector("#locationSelection");
+const locNext = document.querySelector("#locationNext");
 
 const weaponBack = document.querySelector("#weaponBack");
 const weaponSelection = document.querySelector("#weaponSelection");
@@ -105,7 +162,7 @@ const resetButton = document.querySelector("#resetButton");
 function agentRefresh(){
     agentSelection.textContent = agentBank[agent];
 }
-function SelectNext(){
+function agentSelectNext(){
     if(agent < agentBank.length-1){
         agent++;
     } else {
@@ -122,24 +179,24 @@ function agentSelectBack(){
     agentRefresh();
 }
 
-function locationRefresh(){
-    locationSelection.textContent = locationBank[location];
+function locRefresh(){
+    locSelection.textContent = locBank[loc];
 }
-function locationSelectNext(){
-    if(location < locationBank.length-1){
-        location++;
+function locSelectNext(){
+    if(loc < locBank.length-1){
+        loc++;
     } else {
-        location = 1;
+        loc = 1;
     } 
-    locationRefresh();
+    locRefresh();
 }
-function locationSelectBack(){
-    if(location > 1){
-        location--;
+function locSelectBack(){
+    if(loc > 1){
+        loc--;
     } else {
-        location = locationBank.length-1;
+        loc = locBank.length-1;
     } 
-    locationRefresh();
+    locRefresh();
 }
 
 function weaponRefresh(){
@@ -202,4 +259,20 @@ function riskSelectBack(){
     riskRefresh();
 }
 
+// Event listeners
+
+agentBack.addEventListener("click", agentSelectBack);
+agentNext.addEventListener("click", agentSelectNext);
+
+locBack.addEventListener("click", locSelectBack);
+locNext.addEventListener("click", locSelectNext);
+
+weaponBack.addEventListener("click", weaponSelectBack);
+weaponNext.addEventListener("click", weaponSelectNext);
+
+objectiveBack.addEventListener("click", objectiveSelectBack);
+objectiveNext.addEventListener("click", objectiveSelectNext);
+
+riskBack.addEventListener("click", riskSelectBack);
+riskNext.addEventListener("click", riskSelectNext);
 
