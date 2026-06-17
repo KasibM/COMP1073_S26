@@ -65,7 +65,12 @@ Organized carefully
 
 */
 
-// Declaration and Initialisation of Variables
+/* 
+Declaration and Initialisation of Variables 
+Declaration and Initialisation of Variables Adapted from Lesson 2 variables.js
+Arrays Adapted from Lesson 3 
+COMP1073S26
+*/
 const agentBank = [
                 "Not Selected",
                 "Dr. No",
@@ -134,7 +139,13 @@ let weapon = 0;
 let objective = 0;
 let risk = 0;
 
-// Declaration and Initialisation of Document Constants
+/*
+Declaration and Initialisation of Document Constants
+Use of document.querySelector() and # id Selector Adapted from Lesson 1 guess.js
+Variable Declaration and Initialisation Adapted from Lesson 2 variables.js
+COMP1073S26
+*/
+
 const agentBack = document.querySelector("#agentBack");
 const agentSelection = document.querySelector("#agentSelection");
 const agentNext = document.querySelector("#agentNext");
@@ -161,10 +172,22 @@ const resetButton = document.querySelector("#resetButton");
 const missionHeader = document.querySelector("#briefingHead");
 const missionPara = document.querySelector("#briefingPara");
 
-// Set initial Not Selected Placeholders
+/*
+Set Initial "Not Selected" Placeholders
+Calling Functions Adapted from Lesson 1 guess.js 
+COMP1073S26
+*/
 resetMission();
 
-// Functions to Change Selection
+/*
+Functions to Change Selection Declaring 
+Declaration and Calling of Functions Adapted from Lesson 1 guess.js
+Use of textContent Property of Document Element, and "++" Iterator Adapted from Lesson 1 guess.js
+Use of length Property of Strings Adapted from Lesson 2 string-methods.js
+Use of array[index] to Call a Single Item in an array Adapted from Lesson 3 array.js
+Implementation of "if/else" Conditional Statements and Comparison Operators Adapted from Lesson 4 conditionals.js
+COMP1073S26
+*/
 function agentRefresh(){
     agentSelection.textContent = agentBank[agent];
 }
@@ -265,7 +288,15 @@ function riskSelectBack(){
     riskRefresh();
 }
 
-// Functions to Generate and Reset Mission
+/*
+Functions to Generate and Reset Mission
+Declaration and Calling of Functions Adapted from Lesson 1 guess.js
+Use of textContent Property of Document Element Adapted from Lesson 1 guess.js
+Use of array[index] to Call a Single Item in an array Adapted from Lesson 3 array.js
+String Interpolation "`${}`" Adapted from Lesson 4 loops.js
+Implementation of "if/else" Conditional Statements and Comparison Operators Adapted from Lesson 4 conditionals.js
+COMP1073S26
+*/
 function generateMission(){
     if(agent === 0 || loc === 0 || weapon === 0 || objective === 0 || risk === 0){
         missionHeader.textContent = "Unable to Generate Mission Briefing";
@@ -290,7 +321,11 @@ function resetMission(){
     missionPara.textContent = "";
 }
 
-// Event listeners
+/* 
+Event listeners 
+Use of Event Listener "addEventListener" Adapted from Lesson 1 guess.js
+COMP1073S26
+*/
 
 agentBack.addEventListener("click", agentSelectBack);
 agentNext.addEventListener("click", agentSelectNext);
