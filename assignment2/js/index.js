@@ -29,6 +29,8 @@ const pizzaToppings = document.querySelector("toppings");
 const pizzaSpecialInstructions = document.querySelector("specialInstructions");
 const orderButton = document.querySelector("orderButton");
 
+//Add EventListener for orderButton
+orderButton.addEventListener("click", orderPizza);
 
 
 
