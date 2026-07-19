@@ -13,7 +13,6 @@
 <body>
     <h3>Pizza Order Form</h3>
     <label for="size">Size</label>
-    <br>
 	<select id="size">
 		<option value="">Please choose…</option>
 		<option value="large">Large</option>
@@ -21,19 +20,30 @@
 		<option value="small">Small</option>
 	</select>
     <br>
+    <label for="sauce">Sauce</label>
     <select id="sauce">
         <option value ="">Please choose...</option>
-        <option value ="">Tomato Sauce</option>
-        <option value ="">Pesto</option>
-        <option value ="">Barbecue Sauce</option>
-        <option value ="">None</option>
+        <option value ="Tomato Sauce">Tomato Sauce</option>
+        <option value ="Pesto">Pesto</option>
+        <option value ="Barbecue Sauce">Barbecue Sauce</option>
+        <option value ="No Sauce">No Sauce</option>
     </select>
     <br>
-    
+    <label for="toppings">Toppings</label>
+    <select id="toppings">
+        <option value="">Please choose...</option>
+        <option value="None">None</option>
+        <option value="Pepperoni">Pepperoni</option>
+        <option value="Hawaiian">Hawaiian</option>
+        <option value="Vegetarian">Vegetarian</option>
+    </select>
+    <br>
+    <label for="specialInstructions">Special Instructions</label>
+	<input id="specialInstructions" type="text">
+    <br>
+    <button id="orderButton">Order</button>
 
-	<label for="temp">Temperature</label>
-	<input type="number" id="temp" value="15" />
-
+	
 </body>
 
 </html>
