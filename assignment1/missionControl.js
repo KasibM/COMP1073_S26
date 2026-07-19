@@ -65,26 +65,94 @@ Organized carefully
 
 */
 
-// Declaration and Initialisation of Variables
-let agentBank = [];
-let locationBank = [];
-let weaponBank = [];
-let objectiveBank = [];
-let riskBank = [];
+/* 
+Declaration and Initialisation of Variables 
+Declaration and Initialisation of Variables Adapted from Lesson 2 variables.js
+Arrays Adapted from Lesson 3 
+COMP1073S26
+*/
+const agentBank = [
+                "Not Selected",
+                "Dr. No",
+                "Blofeld",
+                "Scaramanga",
+                "Le Chiffre",
+                "Goldfinger",
+                "Silva",
+                "Safin",
+                "Oddjob"
+];
+const locBank = [
+                "Not Selected",
+                "Canada",
+                "Japan",
+                "Brazil",
+                "Germany",
+                "Australia",
+                "South Africa",
+                "Norway",
+                "Mexico",
+                "India",
+                "Italy"
+];
+const weaponBank = [
+                "Not Selected",
+                "Plasma Rifle",
+                "Laser Pistol",
+                "EMP Grenade",
+                "Nano Blade",
+                "Railgun",
+                "Pulse Cannon",
+                "Shock Baton",
+                "Drone Swarm",
+                "Flamethrower",
+                "Sniper Rifle",
+                "Tactical Crossbow",
+                "Energy Sword"
+];
+const objectiveBank = [
+                "Not Selected",
+                "rescue the hostage",
+                "stop the nuclear launch",
+                "retrieve the stolen intel",
+                "eliminate the crime syndicate leader",
+                "protect the VIP",
+                "hack the enemy mainframe",
+                "destroy the secret weapon facility",
+                "prevent the assassination",
+                "infiltrate the enemy base",
+                "recover the experimental prototype",
+                "escape before detonation"
+];
+const riskBank = [
+                "Not Selected",
+                "Low Risk",
+                "Moderate Risk",
+                "High Risk",
+                "Extreme Risk",
+                "Impossible"
+];
 
 let agent = 0;
-let location = 0;
+let loc = 0;
 let weapon = 0;
 let objective = 0;
 let risk = 0;
-// Declaration and Initialisation of Document Constants
+
+/*
+Declaration and Initialisation of Document Constants
+Use of document.querySelector() and # id Selector Adapted from Lesson 1 guess.js
+Variable Declaration and Initialisation Adapted from Lesson 2 variables.js
+COMP1073S26
+*/
+
 const agentBack = document.querySelector("#agentBack");
 const agentSelection = document.querySelector("#agentSelection");
 const agentNext = document.querySelector("#agentNext");
 
-const locationBack = document.querySelector("#locationBack");
-const locationSelection = document.querySelector("#locationSelection");
-const locationNext = document.querySelector("#locationNext");
+const locBack = document.querySelector("#locationBack");
+const locSelection = document.querySelector("#locationSelection");
+const locNext = document.querySelector("#locationNext");
 
 const weaponBack = document.querySelector("#weaponBack");
 const weaponSelection = document.querySelector("#weaponSelection");
@@ -100,3 +168,179 @@ const riskNext = document.querySelector("#riskNext");
 
 const generateButton = document.querySelector("#generateButton");
 const resetButton = document.querySelector("#resetButton");
+
+const missionHeader = document.querySelector("#briefingHead");
+const missionPara = document.querySelector("#briefingPara");
+
+/*
+Set Initial "Not Selected" Placeholders
+Calling Functions Adapted from Lesson 1 guess.js 
+COMP1073S26
+*/
+resetMission();
+
+/*
+Functions to Change Selection Declaring 
+Declaration and Calling of Functions Adapted from Lesson 1 guess.js
+Use of textContent Property of Document Element, and "++" Iterator Adapted from Lesson 1 guess.js
+Use of length Property of Strings Adapted from Lesson 2 string-methods.js
+Use of array[index] to Call a Single Item in an array Adapted from Lesson 3 array.js
+Implementation of "if/else" Conditional Statements and Comparison Operators Adapted from Lesson 4 conditionals.js
+COMP1073S26
+*/
+function agentRefresh(){
+    agentSelection.textContent = agentBank[agent];
+}
+function agentSelectNext(){
+    if(agent < agentBank.length-1){
+        agent++;
+    } else {
+        agent = 1;
+    } 
+    agentRefresh();
+}
+function agentSelectBack(){
+    if(agent > 1){
+        agent--;
+    } else {
+        agent = agentBank.length-1;
+    } 
+    agentRefresh();
+}
+
+function locRefresh(){
+    locSelection.textContent = locBank[loc];
+}
+function locSelectNext(){
+    if(loc < locBank.length-1){
+        loc++;
+    } else {
+        loc = 1;
+    } 
+    locRefresh();
+}
+function locSelectBack(){
+    if(loc > 1){
+        loc--;
+    } else {
+        loc = locBank.length-1;
+    } 
+    locRefresh();
+}
+
+function weaponRefresh(){
+    weaponSelection.textContent = weaponBank[weapon];
+}
+function weaponSelectNext(){
+    if(weapon < weaponBank.length-1){
+        weapon++;
+    } else {
+        weapon = 1;
+    } 
+    weaponRefresh();
+}
+function weaponSelectBack(){
+    if(weapon > 1){
+        weapon--;
+    } else {
+        weapon = weaponBank.length-1;
+    } 
+    weaponRefresh();
+}
+
+function objectiveRefresh(){
+    objectiveSelection.textContent = objectiveBank[objective];
+}
+function objectiveSelectNext(){
+    if(objective < objectiveBank.length-1){
+        objective++;
+    } else {
+        objective = 1;
+    } 
+    objectiveRefresh();
+}
+function objectiveSelectBack(){
+    if(objective > 1){
+        objective--;
+    } else {
+        objective = objectiveBank.length-1;
+    } 
+    objectiveRefresh();
+}
+
+function riskRefresh(){
+    riskSelection.textContent = riskBank[risk];
+}
+function riskSelectNext(){
+    if(risk < riskBank.length-1){
+        risk++;
+    } else {
+        risk = 1;
+    } 
+    riskRefresh();
+}
+function riskSelectBack(){
+    if(risk > 1){
+        risk--;
+    } else {
+        risk = riskBank.length-1;
+    } 
+    riskRefresh();
+}
+
+/*
+Functions to Generate and Reset Mission
+Declaration and Calling of Functions Adapted from Lesson 1 guess.js
+Use of textContent Property of Document Element Adapted from Lesson 1 guess.js
+Use of array[index] to Call a Single Item in an array Adapted from Lesson 3 array.js
+String Interpolation "`${}`" Adapted from Lesson 4 loops.js
+Implementation of "if/else" Conditional Statements and Comparison Operators Adapted from Lesson 4 conditionals.js
+COMP1073S26
+*/
+function generateMission(){
+    if(agent === 0 || loc === 0 || weapon === 0 || objective === 0 || risk === 0){
+        missionHeader.textContent = "Unable to Generate Mission Briefing";
+        missionPara.textContent = "All mission details need to be selected.";
+    } else{
+        missionHeader.textContent = "Mission Briefing";
+        missionPara.textContent = `Agent ${agentBank[agent]} will be on a ${riskBank[risk]} mission in ${locBank[loc]}. They will be using a ${weaponBank[weapon]} to ${objectiveBank[objective]}.`;
+    } 
+}
+function resetMission(){
+    agent = 0;
+    loc = 0;
+    weapon = 0;
+    objective = 0;
+    risk = 0;
+    agentRefresh();
+    locRefresh();
+    weaponRefresh();
+    objectiveRefresh();
+    riskRefresh();
+    missionHeader.textContent = "";
+    missionPara.textContent = "";
+}
+
+/* 
+Event listeners 
+Use of Event Listener "addEventListener" Adapted from Lesson 1 guess.js
+COMP1073S26
+*/
+
+agentBack.addEventListener("click", agentSelectBack);
+agentNext.addEventListener("click", agentSelectNext);
+
+locBack.addEventListener("click", locSelectBack);
+locNext.addEventListener("click", locSelectNext);
+
+weaponBack.addEventListener("click", weaponSelectBack);
+weaponNext.addEventListener("click", weaponSelectNext);
+
+objectiveBack.addEventListener("click", objectiveSelectBack);
+objectiveNext.addEventListener("click", objectiveSelectNext);
+
+riskBack.addEventListener("click", riskSelectBack);
+riskNext.addEventListener("click", riskSelectNext);
+
+generateButton.addEventListener("click", generateMission);
+resetButton.addEventListener("click", resetMission);
