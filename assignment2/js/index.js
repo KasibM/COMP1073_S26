@@ -18,9 +18,21 @@ Upload your application to a live website. (GitHub Pages or any other that works
 Post the URL to the assignment on Blackboard.
 */
 
-//Declare and Initialize Variables (Adapted from Lesson 1)
-let studentName = "Kasib Mir";
-let studentNumber = "200653265";
+//Declare and Initialise Variables (Adapted from Lesson 1 guess.js)
+const studentName = "Kasib Mir";
+const studentNumber = "200653265";
+
+//Declare and Initialise Elements of Document (Adapted from Lesson 4 conditionals.js)
+const pizzaSize = document.querySelector("size");
+const pizzaSauce = document.querySelector("sauce");
+const pizzaToppings = document.querySelector("toppings");
+const pizzaSpecialInstructions = document.querySelector("specialInstructions");
+const orderButton = document.querySelector("orderButton");
+
+
+
+
+
 
 
 
