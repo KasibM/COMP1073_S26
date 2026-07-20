@@ -30,9 +30,15 @@ const pizzaSpecialInstructions = document.querySelector("#specialInstructions");
 const orderButton = document.querySelector("#orderButton");
 const errorSection = document.querySelector("#errorSection");
 const orderDetails = document.querySelector("#orderDetails");
+const sName = document.querySelector("#sName");
+const sID = document.querySelector("#sID");
 
 // Add EventListener for orderButton (Adapted from Lesson 4 conditionals.js)
 orderButton.addEventListener("click", orderPizza);
+
+// Add student name and ID dynamically
+sName.textContent = studentName;
+sID.textContent = studentNumber;
 
 // Create a class called 'Pizza' (Adapted from Lessson 09 coffee.js)
 class Pizza {
@@ -75,10 +81,10 @@ function orderPizza () {
         // Update textContent of orderDetails <p> with return value of description method of Pizza class
         orderDetails.textContent = orderedPizza.description();
 
-    }
-    
-
+    }   
 }
+
+
 
 
 

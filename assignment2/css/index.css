@@ -6,4 +6,9 @@ html{
     line-height: 150%;
     padding: 5rem;
 }
+#sName, #sID {
+    margin-right:6rem;
+    font-size: 12px;
+    text-align:right;
+}
 
