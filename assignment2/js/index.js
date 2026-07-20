@@ -18,20 +18,46 @@ Upload your application to a live website. (GitHub Pages or any other that works
 Post the URL to the assignment on Blackboard.
 */
 
-//Declare and Initialise Variables (Adapted from Lesson 1 guess.js)
+// Declare and Initialise Variables (Adapted from Lesson 1 guess.js)
 const studentName = "Kasib Mir";
 const studentNumber = "200653265";
 
-//Declare and Initialise Elements of Document (Adapted from Lesson 4 conditionals.js)
-const pizzaSize = document.querySelector("size");
-const pizzaSauce = document.querySelector("sauce");
-const pizzaToppings = document.querySelector("toppings");
-const pizzaSpecialInstructions = document.querySelector("specialInstructions");
-const orderButton = document.querySelector("orderButton");
+// Declare and Initialise Elements of Document (Adapted from Lesson 4 conditionals.js)
+const pizzaSize = document.querySelector("#size");
+const pizzaSauce = document.querySelector("#sauce");
+const pizzaToppings = document.querySelector("#toppings");
+const pizzaSpecialInstructions = document.querySelector("#specialInstructions");
+const orderButton = document.querySelector("#orderButton");
+const errorSection = document.querySelector("#errorSection");
 
-//Add EventListener for orderButton
+// Add EventListener for orderButton (Adapted from Lesson 4 conditionals.js)
 orderButton.addEventListener("click", orderPizza);
 
+
+// Declare orderPizza Function (Adapted from Lesson 4 conditionals.js)
+function orderPizza () {
+    // Collect pizza choices
+    let size = pizzaSize.value;
+    let sauce = pizzaSauce.value;
+    let toppings = pizzaToppings.value;
+    let specialInstructions = pizzaSpecialInstructions.value;
+    console.log(size);
+    console.log(sauce);
+    console.log(toppings);
+    console.log(specialInstructions);
+
+    if(size === ""){
+        errorSection.textContent = "Please choose a Size";
+    } else if (sauce === "") {
+        errorSection.textContent = "Please choose a Sauce";
+    } else if (toppings === "") {
+        errorSection.textContent = "Please choose Toppings";
+    } else {
+        
+    }
+    
+
+}
 
 
 
