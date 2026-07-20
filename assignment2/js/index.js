@@ -29,11 +29,30 @@ const pizzaToppings = document.querySelector("#toppings");
 const pizzaSpecialInstructions = document.querySelector("#specialInstructions");
 const orderButton = document.querySelector("#orderButton");
 const errorSection = document.querySelector("#errorSection");
+const orderDetails = document.querySelector("#orderDetails");
 
 // Add EventListener for orderButton (Adapted from Lesson 4 conditionals.js)
 orderButton.addEventListener("click", orderPizza);
 
+// Create a class called 'Pizza' (Adapted from Lessson 09 coffee.js)
+class Pizza {
+    size;
+    sauce;
+    toppings;
+    specialInstructions;
 
+    constructor(size, sauce, toppings, specialInstructions){
+        this.size = size;
+        this.sauce = sauce;
+        this.toppings = toppings;
+        this.specialInstructions = specialInstructions;
+    }
+
+    description(){
+        return `You ordered a ${this.size} ${this.toppings} pizza with ${this.sauce}. You specified these special instructions: ${this.specialInstructions}`
+    }
+
+}
 // Declare orderPizza Function (Adapted from Lesson 4 conditionals.js)
 function orderPizza () {
     // Collect pizza choices
@@ -41,11 +60,8 @@ function orderPizza () {
     let sauce = pizzaSauce.value;
     let toppings = pizzaToppings.value;
     let specialInstructions = pizzaSpecialInstructions.value;
-    console.log(size);
-    console.log(sauce);
-    console.log(toppings);
-    console.log(specialInstructions);
 
+    // Validation for empty choices
     if(size === ""){
         errorSection.textContent = "Please choose a Size";
     } else if (sauce === "") {
@@ -53,7 +69,12 @@ function orderPizza () {
     } else if (toppings === "") {
         errorSection.textContent = "Please choose Toppings";
     } else {
-        
+        // Else none empty instantiate new Pizza and call description method
+        let orderedPizza = new Pizza(size, sauce, toppings, specialInstructions);
+
+        // Update textContent of orderDetails <p> with return value of description method of Pizza class
+        orderDetails.textContent = orderedPizza.description();
+
     }
     
 
