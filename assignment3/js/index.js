@@ -26,6 +26,11 @@ Post the URL to the assignment on Blackboard.
 const studentName = "Kasib Mir";
 const studentNumber = "200653265";
 
+let gameRunning = false;
+let deckId = "new";
+let correctGuessCount = 0;
+let incorrectGuessCount = 0;
+
 
 // Declare and Initialise Elements of Document (Adapted from Lesson 4 conditionals.js)
 const sName = document.querySelector("#sName");
@@ -38,14 +43,16 @@ const iCardDisplay = document.querySelector("#cardDisplay");
 const bDraw = document.querySelector("#drawButton");
 const bYes = document.querySelector("#yesButton");
 const bNo = document.querySelector("#noButton");
+const bRestart = document.querySelector("#restartButton");
 
 // Add student name and ID dynamically (Adapted from Lesson 1 guess.js)
 sName.textContent = studentName;
 sID.textContent = studentNumber;
 
 //Set display property for yes/no buttons initially (Adapted from Lesson 1 guess.js)
-bYes.style.display = 'none';
-bNo.style.display = 'none';
+bYes.style.display = "none";
+bNo.style.display = "none";
+bRestart.style.display = "none";
 
 
 
@@ -54,9 +61,73 @@ bNo.style.display = 'none';
 bDraw.addEventListener("click", drawCard);
 bYes.addEventListener("click", correctGuess);
 bNo.addEventListener("click", incorrectGuess);
+bRestart.addEventListener("click", redrawCard);
 
 
+// Action functions (Adapted from Lesson 4 conditionals.js)
+function drawCard() {
+    if(!gameRunning){
+        // Shuffle and pull new card
+        redrawCard();
+        // Unhide restart button
+        bRestart.style.display = "inline";
+    } else {
+        pMessage.textContent = "";
+        
+    }
 
+}
+
+function correctGuess() {
+
+}
+
+function incorrectGuess() {
+    
+}
+
+function redrawCard(){
+    // Update Display Message
+    pMessage.textContent = "This is your card. Remember it. Draw Card to begin the magic trick.";
+    // Start game
+    gameRunning = true;
+
+    // Shuffle deck
+    callShuffle();
+    
+    // Draw and Display Card
+    callDraw();
+
+    // Reshuffle card into deck
+    callShuffle();
+    
+
+
+}
+
+function callShuffle(){
+    let url = `https://deckofcardsapi.com/api/deck/${deckId}/shuffle/?deck_count=1`;
+    
+    // Request shuffle, return and save deck_id value to deckId
+    fetch(url, {method: "GET"}).then(response => {
+        return response.json();
+    }).then(json =>{
+        deckId = json.deck_id;
+    })
+
+
+}
+
+function callDraw(){
+    let url = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`;
+    
+    // Draw Card, display card image
+    fetch(url, {method: "GET"}).then(response => {
+        return response.json();
+    }).then(json =>{
+        iCardDisplay.setAttribute("src", json.cards[0].image);        
+    })
+}
 
 
 
