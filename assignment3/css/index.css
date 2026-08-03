@@ -6,12 +6,9 @@ html{
     font-size: 20px;
     line-height: 110%;
     padding: 5rem;
+    height: fit-content;
 }
-#sName, #sID {
-    margin-right:6rem;
-    font-size: 12px;
-    text-align:right;
-}
+
 h3{
     margin-right:6rem;
     text-align:right;
@@ -24,3 +21,14 @@ h3{
 #correctGuesses, #incorrectGuesses {
     font-size: 80%;
 }
+img,p,button{
+position:relative;
+top: -10rem;
+}
+#sName, #sID {
+    margin-right:6rem;
+    font-size: 12px;
+    text-align:right;
+    position:static;
+}
+

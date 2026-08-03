@@ -19,8 +19,7 @@ Upload your application to a live website. (GitHub Pages or any other that works
 Post the URL to the assignment on Blackboard.
 */
 
-//API Documentation
-//https://deckofcardsapi.com/ 
+//API Documentation: https://deckofcardsapi.com/ 
 
 // Declare and Initialise Variables (Adapted from Lesson 1 guess.js)
 const studentName = "Kasib Mir";
@@ -66,66 +65,93 @@ bRestart.addEventListener("click", redrawCard);
 
 // Action functions (Adapted from Lesson 4 conditionals.js)
 function drawCard() {
-    if(!gameRunning){
+    if (!gameRunning) {
         // Shuffle and pull new card
         redrawCard();
-        // Unhide restart button
+        // Unhide restart button 
         bRestart.style.display = "inline";
     } else {
-        pMessage.textContent = "";
-        
+        pMessage.textContent = "Was this your card?";
+
+        // Draw new Card
+        callDraw();
+
+        // Hide Draw Card Button
+        bDraw.style.display = "none";
+
+        // Unhide Yes / No Button 
+        bYes.style.display = "inline";
+        bNo.style.display = "inline";
     }
 
 }
 
 function correctGuess() {
+    pMessage.textContent = "I thought you'd say that.";
+    // Add to correct guess count
+    correctGuessCount++;
+    // Update correct guess count
+    pCorrectGuesses.textContent = `Correct Guesses: ${correctGuessCount}`;
+
+    // Rehide Yes / No Buttons
+    bYes.style.display = "none";
+    bNo.style.display = "none";
 
 }
 
 function incorrectGuess() {
-    
+    // Add to incorrect guess count
+    incorrectGuessCount++;
+    // Update incorrect guess count
+    pIncorrectGuesses.textContent = `Incorrect Guesses: ${incorrectGuessCount}`;
+
+    // Reguess
+    drawCard();
+
 }
 
-function redrawCard(){
-    // Update Display Message
+function redrawCard() {
+    // Update Display Message 
     pMessage.textContent = "This is your card. Remember it. Draw Card to begin the magic trick.";
     // Start game
     gameRunning = true;
 
+    // Unhide Draw Card button incase hidden
+    bDraw.style.display = "inline";
+
     // Shuffle deck
     callShuffle();
-    
+
     // Draw and Display Card
     callDraw();
 
     // Reshuffle card into deck
     callShuffle();
-    
-
 
 }
 
-function callShuffle(){
+// API Call functions (Adapted from Week 12 claude-api.js)
+//API Documentation: https://deckofcardsapi.com/ 
+function callShuffle() {
     let url = `https://deckofcardsapi.com/api/deck/${deckId}/shuffle/?deck_count=1`;
-    
+
     // Request shuffle, return and save deck_id value to deckId
-    fetch(url, {method: "GET"}).then(response => {
+    fetch(url, { method: "GET" }).then(response => {
         return response.json();
-    }).then(json =>{
+    }).then(json => {
         deckId = json.deck_id;
     })
 
-
 }
 
-function callDraw(){
+function callDraw() {
     let url = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`;
-    
+
     // Draw Card, display card image
-    fetch(url, {method: "GET"}).then(response => {
+    fetch(url, { method: "GET" }).then(response => {
         return response.json();
-    }).then(json =>{
-        iCardDisplay.setAttribute("src", json.cards[0].image);        
+    }).then(json => {
+        iCardDisplay.setAttribute("src", json.cards[0].image);
     })
 }
 
